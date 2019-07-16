@@ -175,9 +175,6 @@ def clearNumberPixels(x, y):
 # Gets a specific part of the current time, passed to strftime, then it is
 # split into its individual numbers and converted into integers. Used to feed
 # the display with numbers
-def getMinuteParts():
-  minute = datetime.datetime.now().strftime("%M")
-  return [int(x) for x in minute]
 
 def getTimeParts(timePart):
   parts = datetime.datetime.now().strftime(timePart)
@@ -192,9 +189,6 @@ displayNumber(8,15, displayedHourParts[1])
 displayNumber(0,6, displayedMinuteParts[0])
 displayNumber(8,6, displayedMinuteParts[1])
 
-current_milli_time = lambda: int(round(time.time() * 1000))
-
-step = 0
 
 try:
   while True:
@@ -222,5 +216,8 @@ try:
       displayedMinuteParts[1] = minuteParts[1]
       displayNumber(8,6, minuteParts[1])
 
+    # Sleep for 0.5 because the display doesn't need to update that often
+    time.sleep(5)
+    
 except KeyboardInterrupt:
   unicorn.off()
