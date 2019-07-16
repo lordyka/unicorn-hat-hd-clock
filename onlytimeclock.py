@@ -15,18 +15,18 @@ unicorn.brightness(0.1)
 
 # Composition methods
 def fullLine(start, row):
-  for x in range(start, start+8):
+  for x in range(start, start+7):
     unicorn.set_pixel(x, row, 255, 255, 255)
 
 def bothSides(start, row):
   unicorn.set_pixel(start, row, 255, 255, 255)
-  unicorn.set_pixel(start+7, row, 255, 255, 255)
+  unicorn.set_pixel(start+6, row, 255, 255, 255)
 
 def leftSide(start, row):
   unicorn.set_pixel(start, row, 255, 255, 255)
 
 def rightSide(start, row):
-  unicorn.set_pixel(start+7, row, 255, 255, 255)
+  unicorn.set_pixel(start+6, row, 255, 255, 255)
 
 # Numbers
 def displayZero(x, y):
@@ -217,7 +217,7 @@ try:
       displayNumber(8,6, minuteParts[1])
 
     # Sleep for 0.5 because the display doesn't need to update that often
-    time.sleep(5)
+    time.sleep(1)
     
 except KeyboardInterrupt:
   unicorn.off()
