@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import time
+import datetime
 
 try:
     import unicornhathd as unicorn
@@ -8,25 +9,9 @@ try:
 except ImportError:
     from unicorn_hat_sim import unicornhathd as unicorn
 
-unicorn.rotation(270)
-unicorn.brightness(0.5)
+unicorn.rotation(90)
+unicorn.brightness(0.1)
 
-
-# There are 4 different types of patterns used when generating
-# a number that is to be placed in a rectangle 7x7 pixels. Combinations of these
-# are used to create a number pattern such as:
-#   * * * * * * *
-#   *
-#   *
-#   * * * * * * *
-#   *           *
-#   *           *
-#   * * * * * * *
-
-# 1) * * * * * * * Full Row
-# 2) *           * Both Sides
-# 3)             * Right Side
-# 4) *             Left Side
 
 # Composition methods
 def fullLine(start, row):
