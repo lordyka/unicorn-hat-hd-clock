@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import time
-import datetime
 
 try:
     import unicornhathd as unicorn
@@ -12,7 +11,6 @@ except ImportError:
 unicorn.rotation(270)
 unicorn.brightness(0.5)
 
-secondsProgressRow = 10
 
 # There are 4 different types of patterns used when generating
 # a number that is to be placed in a rectangle 3X5 pixels. Combinations of these
