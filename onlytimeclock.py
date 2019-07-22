@@ -12,21 +12,24 @@ except ImportError:
 unicorn.rotation(90)
 unicorn.brightness(0.1)
 
+r = 255
+g = 255
+b = 255
 
 # Composition methods
 def fullLine(start, row):
   for x in range(start, start+7):
-    unicorn.set_pixel(x, row, 255, 255, 255)
+    unicorn.set_pixel(x, row, r, g, b)
 
 def bothSides(start, row):
-  unicorn.set_pixel(start, row, 255, 255, 255)
-  unicorn.set_pixel(start+6, row, 255, 255, 255)
+  unicorn.set_pixel(start, row, r, g, b)
+  unicorn.set_pixel(start+6, row, r, g, b)
 
 def leftSide(start, row):
-  unicorn.set_pixel(start, row, 255, 255, 255)
+  unicorn.set_pixel(start, row, r, g, b)
 
 def rightSide(start, row):
-  unicorn.set_pixel(start+6, row, 255, 255, 255)
+  unicorn.set_pixel(start+6, row, r, g, b)
 
 # Numbers
 def displayZero(x, y):
