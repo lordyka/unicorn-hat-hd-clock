@@ -194,7 +194,7 @@ displayNumber(8,6, displayedMinuteParts[1])
 try:
   while True:
     file = open(“state.txt”, “r”)
-    x = file.read()
+    x = file.read(1)
     file.close()
     if x == 1:
       hourParts = getTimeParts('%H')
