@@ -15,7 +15,7 @@ unicorn.brightness(0.1)
 ifvar = 1
 offvar = 1
 
-def changestate(x)
+def changestate(x):
   global ifvar
   if x == 1:
     ifvar = 1
