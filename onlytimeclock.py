@@ -12,17 +12,7 @@ except ImportError:
 unicorn.rotation(90)
 unicorn.brightness(0.1)
 
-ifvar = 1
 offvar = 1
-
-def changestate(x):
-  global ifvar
-  if x == 1:
-    ifvar = 1
-  elif x == 0:
-    ifvar = 0
-  else:
-    ifvar = 1
 
 # Composition methods
 def fullLine(start, row):
@@ -203,7 +193,10 @@ displayNumber(8,6, displayedMinuteParts[1])
 
 try:
   while True:
-    if ifvar == 1:
+    file = open(“state.txt”, “r”)
+    x = file.read()
+    file.close()
+    if x == 1:
       hourParts = getTimeParts('%H')
       minuteParts = getTimeParts('%M')
     
