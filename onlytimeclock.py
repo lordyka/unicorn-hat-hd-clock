@@ -13,13 +13,16 @@ unicorn.rotation(90)
 unicorn.brightness(0.1)
 
 ifvar = 1
+offvar = 1
 
 def changestate(x)
   global ifvar
   if x == 1:
     ifvar = 1
-  if x == 0:
+  elif x == 0:
     ifvar = 0
+  else:
+    ifvar = 1
 
 # Composition methods
 def fullLine(start, row):
@@ -226,9 +229,14 @@ try:
         displayNumber(8,6, minuteParts[1])
 
       # Sleep for 0.5 because the display doesn't need to update that often
+      offvar = 1
       time.sleep(1)
     else:
-      unicorn.off()
-      time.sleep(1)
+      if offvar == 1:  
+        unicorn.off()
+        offvar = 0
+        time.sleep(1)
+      else:
+        time.sleep(1)
 except KeyboardInterrupt:
   unicorn.off()
