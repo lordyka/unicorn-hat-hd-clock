@@ -12,6 +12,14 @@ except ImportError:
 unicorn.rotation(90)
 unicorn.brightness(0.1)
 
+ifvar = 1
+
+def changestate(x)
+  global ifvar
+  if x == 1:
+    ifvar = 1
+  if x == 0:
+    ifvar = 0
 
 # Composition methods
 def fullLine(start, row):
@@ -192,32 +200,35 @@ displayNumber(8,6, displayedMinuteParts[1])
 
 try:
   while True:
-    hourParts = getTimeParts('%H')
-    minuteParts = getTimeParts('%M')
+    if ifvar == 1:
+      hourParts = getTimeParts('%H')
+      minuteParts = getTimeParts('%M')
     
-    # TIME Details
-    # Only update first hour number if it is different to what is currently displayed
-    if hourParts[0] != displayedHourParts[0]:
-      displayedHourParts[0] = hourParts[0]
-      displayNumber(0,15, hourParts[0])
+      # TIME Details
+      # Only update first hour number if it is different to what is currently displayed
+      if hourParts[0] != displayedHourParts[0]:
+        displayedHourParts[0] = hourParts[0]
+        displayNumber(0,15, hourParts[0])
 
-    # Only update second hour number if it is different to what is currently displayed
-    if hourParts[1] != displayedHourParts[1]:
-      displayedHourParts[1] = hourParts[1]
-      displayNumber(8,15, hourParts[1])
+      # Only update second hour number if it is different to what is currently displayed
+      if hourParts[1] != displayedHourParts[1]:
+        displayedHourParts[1] = hourParts[1]
+        displayNumber(8,15, hourParts[1])
 
-    # Only update first minute number if it is different to what is currently displayed
-    if minuteParts[0] != displayedMinuteParts[0]:
-      displayedMinuteParts[0] = minuteParts[0]
-      displayNumber(0,6, minuteParts[0])
+      # Only update first minute number if it is different to what is currently displayed
+      if minuteParts[0] != displayedMinuteParts[0]:
+        displayedMinuteParts[0] = minuteParts[0]
+        displayNumber(0,6, minuteParts[0])
 
-    # Only update second minute number if it is different to what is currently displayed
-    if minuteParts[1] != displayedMinuteParts[1]:
-      displayedMinuteParts[1] = minuteParts[1]
-      displayNumber(8,6, minuteParts[1])
+      # Only update second minute number if it is different to what is currently displayed
+      if minuteParts[1] != displayedMinuteParts[1]:
+        displayedMinuteParts[1] = minuteParts[1]
+        displayNumber(8,6, minuteParts[1])
 
-    # Sleep for 0.5 because the display doesn't need to update that often
-    time.sleep(1)
-    
+      # Sleep for 0.5 because the display doesn't need to update that often
+      time.sleep(1)
+    else:
+      unicorn.off()
+      time.sleep(1)
 except KeyboardInterrupt:
   unicorn.off()
